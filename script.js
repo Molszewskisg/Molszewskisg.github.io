@@ -105,7 +105,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
   const currency = document.getElementById("currency").value;
   const products = document.getElementById("products").value;
 
-  console.log("Tracking purchase:", orderId, totalAmount, currency);
+  console.log("Tracking purchase:", orderId, revenue, currency);
 
   if (window.analytics) {
     let parsedProducts;
