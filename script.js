@@ -110,7 +110,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
   console.log("Tracking purchase:", orderId, revenue, currency);
 
   // Check if all fields are filled
-  if (!orderId || !revenue || !currency || !products) {
+  if (!orderId || !revenue || !currencyCode || !products) {
     alert("Please fill in all fields.");
     return;
   }
