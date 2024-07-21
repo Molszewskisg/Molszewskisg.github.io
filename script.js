@@ -104,13 +104,13 @@ document.getElementById("purchase_button").addEventListener("click", function ()
   const productId = document.getElementById("product_id").value;
   const price = parseFloat(document.getElementById("price").value);
   const revenue = parseFloat(document.getElementById("revenue").value);
-  const currencyCode = document.getElementById("currency").value;
+  const currency = document.getElementById("currency").value;
   const products = document.getElementById("products").value;
 
-  console.log("Tracking purchase:", orderId, revenue, currencyCode);
+  console.log("Tracking purchase:", orderId, revenue, currency);
 
   // Check if all fields are filled
-  if (!orderId || !revenue || !currencyCode || !products) {
+  if (!orderId || !revenue || !currency || !products) {
     alert("Please fill in all fields.");
     return;
   }
@@ -130,7 +130,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
       productId: productId,
       price: price,
       revenue: parseFloat(revenue),
-      currencyCode: currency,
+      currency: currency,
       products: parsedProducts
     });
 
