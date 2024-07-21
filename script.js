@@ -107,6 +107,12 @@ document.getElementById("purchase_button").addEventListener("click", function ()
 
   console.log("Tracking purchase:", orderId, revenue, currency);
 
+  // Check if all fields are filled
+  if (!orderId || !revenue || !currency || !products) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
   if (window.analytics) {
     let parsedProducts;
     try {
@@ -117,12 +123,14 @@ document.getElementById("purchase_button").addEventListener("click", function ()
       return;
     }
 
-    analytics.track("Purchases", {
+    analytics.track("Order Completed", {
       orderId: orderId,
       revenue: parseFloat(revenue),
       currency: currency,
       products: parsedProducts
     });
+
+    console.log("Order Completed event tracked successfully.");
   } else {
     console.error("Segment analytics is not loaded.");
   }
