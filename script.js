@@ -117,7 +117,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
       return;
     }
 
-    analytics.track("Order Completed", {
+    analytics.track("Purchases", {
       orderId: orderId,
       revenue: parseFloat(revenue),
       currency: currency,
