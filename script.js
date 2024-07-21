@@ -112,7 +112,7 @@ document.getElementById("log_purchase_button").addEventListener("click", functio
 
   if (window.analytics) {
     console.log("Segment analytics is loaded. Logging purchase event.");
-    analytics.track("Purchase", {
+    analytics.track("Order Completed", {
       productId: productId,
       currency: currency,
       price: price,
