@@ -101,8 +101,10 @@ document.getElementById("event_button").addEventListener("click", function () {
 // TRACK PURCHASE
 document.getElementById("purchase_button").addEventListener("click", function () {
   const orderId = document.getElementById("order_id").value;
+  const productId = document.getElementById("product_id").value;
+  const price = document.getElementById("price").value;
   const revenue = document.getElementById("revenue").value;
-  const currency = document.getElementById("currency").value;
+  const currencyCode = document.getElementById("currency").value;
   const products = document.getElementById("products").value;
 
   console.log("Tracking purchase:", orderId, revenue, currency);
@@ -125,8 +127,10 @@ document.getElementById("purchase_button").addEventListener("click", function ()
 
     analytics.track("Order Completed", {
       orderId: orderId,
+      productId: productId,
+      price: price,
       revenue: parseFloat(revenue),
-      currency: currency,
+      currencyCode: currency,
       products: parsedProducts
     });
 
