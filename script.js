@@ -102,8 +102,8 @@ document.getElementById("event_button").addEventListener("click", function () {
 document.getElementById("purchase_button").addEventListener("click", function () {
   const orderId = document.getElementById("order_id").value;
   const productId = document.getElementById("product_id").value;
-  const price = document.getElementById("price").value;
-  const revenue = document.getElementById("revenue").value;
+  const price = parseFloat(document.getElementById("price").value);
+  const revenue = parseFloat(document.getElementById("revenue").value);
   const currencyCode = document.getElementById("currency").value;
   const products = document.getElementById("products").value;
 
