@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <title>Example Segment Integration</title>
+    <style>
+      body {
+        background-color: powderblue;
+      }
+      .specialButton {
+        background-color: green;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      /*  h1
+  {
+      -webkit-animation: color-change 1s infinite;
+      -moz-animation: color-change 1s infinite;
+      -o-animation: color-change 1s infinite;
+      -ms-animation: color-change 1s infinite;
+      animation: color-change 1s infinite;
+  }*/
+
+      @-webkit-keyframes color-change {
+        0% {
+          color: red;
+        }
+        20% {
+          color: blue;
+        }
+        40% {
+          color: yellow;
+        }
+        60% {
+          color: orange;
+        }
+        80% {
+          color: green;
+        }
+        100% {
+          color: red;
+        }
+      }
+      @-moz-keyframes color-change {
+        0% {
+          color: red;
+        }
+        20% {
+          color: blue;
+        }
+        40% {
+          color: yellow;
+        }
+        60% {
+          color: orange;
+        }
+        80% {
+          color: green;
+        }
+        100% {
+          color: red;
+        }
+      }
+      @-ms-keyframes color-change {
+        0% {
+          color: red;
+        }
+        20% {
+          color: blue;
+        }
+        40% {
+          color: yellow;
+        }
+        60% {
+          color: orange;
+        }
+        80% {
+          color: green;
+        }
+        100% {
+          color: red;
+        }
+      }
+      @-o-keyframes color-change {
+        0% {
+          color: red;
+        }
+        20% {
+          color: blue;
+        }
+        40% {
+          color: yellow;
+        }
+        60% {
+          color: orange;
+        }
+        80% {
+          color: green;
+        }
+        100% {
+          color: red;
+        }
+      }
+      @keyframes color-change {
+        0% {
+          color: red;
+        }
+        20% {
+          color: blue;
+        }
+        40% {
+          color: yellow;
+        }
+        60% {
+          color: orange;
+        }
+        80% {
+          color: green;
+        }
+        100% {
+          color: red;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="custom.css" />
+
+    <script>
+      !function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="NrUwN1T2z04wS0vWX97Bj3ipHtbbvRtP";;analytics.SNIPPET_VERSION="5.2.0";
+      analytics.load("NrUwN1T2z04wS0vWX97Bj3ipHtbbvRtP");
+      analytics.page();
+      }}();
+    </script>
+    
+  </head>
+
+  <body>
+    <h1>Example Braze Web SDK Segment Integration</h1>
+    <h3>
+      Built upon Seth's
+      <a
+        href="https://github.com/nickrobin/Braze-Web-SDK-Tutorial/tree/startingPoint"
+        >Web SDK Integration</a
+      >
+    </h3>
+
+    <br />
+
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      Read Me!
+    </button>
+
+    <br />
+    <br />
+
+    <a href="https://segment.com/docs/" target="_blank"
+      >Link to Segment Documentation</a
+    >
+
+    <br />
+    <br />
+
+    <a
+      href="https://segment.com/docs/getting-started/implementation-guide/"
+      target="_blank"
+      >Getting started guide</a
+    >
+
+    <br />
+    <br />
+
+    <a href="https://segment.com/docs/connections/spec/" target="_blank"
+      >Link to Segment specs (identify, track, etc.)</a
+    >
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hey There!</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Welcome to The Braze Segment sample integration.
+            <br />
+            <br />
+            –Please make a new account in Segment and add the
+            <a
+              href="https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/#step-2a-add-the-segment-snippet"
+              >Segment code snippet</a
+            >
+            instead of "Insert Segment code snippet here!!" within the head of
+            the index.html file. You will then create a Javascript source.
+            <br />
+            <br />
+            -Connect the Braze destination within the Segment dashboard.
+            <br />
+            <br />
+            –The documentation for all methods and this integration is in this
+            <a
+              href="https://confluence.braze.com/pages/viewpage.action?pageId=330237810&moved=true"
+              >Confluence page.</a
+            >
+            <br />
+            <br />
+            –When using the site, make sure to submit a User ID (inside user
+            attributes) before you do anything else!
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <button class="specialButton" onclick="user()">Set User Attributes</button>
+    <br />
+    <br />
+
+    <div id="user" style="display: none">
+      User ID:
+      <input id="change_user_text" type="text" name="userid" />
+      <button id="change_user_button">Submit</button><br />
+      <br />
+
+      First Name:
+      <input id="fn_text" type="text" name="firstname" />
+      <button id="fn_button">Submit</button><br />
+      <br />
+
+      Last Name:
+      <input id="ln_text" type="text" name="lastname" />
+      <button id="ln_button">Submit</button><br />
+      <br />
+
+      Email Address:
+      <input id="email_text" type="email" name="emailaddress" />
+      <button id="email_button">Submit</button><br />
+      <br />
+    </div>
+
+    <button class="specialButton" onclick="customA()">
+      Set Custom Attributes
+    </button>
+    <br />
+    <br />
+
+    <div id="customA" style="display: none">
+      Attribute Name:
+      <input id="attribute_name" type="text" name="attributename" /><br />
+      <br />
+
+      Attribute Value:
+      <input id="attribute_value" type="text" name="attributevalue" /><br />
+      <br />
+
+      <button id="attribute_button">Submit</button><br />
+      <br />
+    </div>
+
+    <button class="specialButton" onclick="customE()">Log Custom Events</button>
+    <br />
+    <br />
+
+    <div id="customE" style="display: none">
+      Event Name:
+      <input id="event_name" type="text" name="eventname" /><br />
+      <br />
+
+      [Optional] Event Properties (JSON):
+      <input id="properties" type="text" name="optionaleventproperties" /><br />
+      <br />
+
+      <button id="event_button">Submit</button><br />
+      <br />
+    </div>
+
+    <div
+      class="modal fade"
+      id="testModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="testModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="testModalLabel">
+              User Attribute Results
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2 id="answer"></h2>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script type="text/javascript" src="script.js"></script>
+  <script>
+    $("#myModal").on("shown.bs.modal", function () {
+      $("#myInput").trigger("focus");
+    });
+  </script>
+</html>
