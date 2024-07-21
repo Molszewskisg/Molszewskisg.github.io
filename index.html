@@ -266,11 +266,14 @@
 
     <br />
     <br />
-    <a
-    <button onclick="braze.requestPushPermission(function() {braze.logCustomEvent('send_push');braze.requestImmediateDataFlush();});">Send Me A Sample Push</button> </a
-    >
-    <br />
-    <br />                                                                                                                                                            
+
+    <div class="button-container">
+      <button onclick="braze.requestPushPermission(function() {braze.logCustomEvent('send_push');braze.requestImmediateDataFlush();});">
+      Send Me A Sample Push
+      </button>
+    </div>
+  <br />
+  <br />                                                                                                                                                         
 
     <button class="specialButton" onclick="user()">Set User Attributes</button>
     <br />
