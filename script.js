@@ -100,9 +100,6 @@ document.getElementById("event_button").addEventListener("click", function () {
 
 // TRACK PURCHASE
 document.getElementById("purchase_button").addEventListener("click", function () {
-  const orderId = document.getElementById("order_id").value;
-  const productId = document.getElementById("product_id").value;
-  const price = parseFloat(document.getElementById("price").value);
   const revenue = parseFloat(document.getElementById("revenue").value);
   const currency = document.getElementById("currency").value;
   const products = document.getElementById("products").value;
@@ -110,7 +107,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
   console.log("Tracking purchase:", orderId, revenue, currency);
 
   // Check if all fields are filled
-  if (!orderId || !revenue || !currency || !products) {
+  if (!revenue || !currency) {
     alert("Please fill in all fields.");
     return;
   }
@@ -126,9 +123,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
     }
 
     analytics.track("Order Completed", {
-      orderId: orderId,
-      productId: productId,
-      price: price,
+      
       revenue: parseFloat(revenue),
       currency: currency,
       products: parsedProducts
