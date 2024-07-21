@@ -103,12 +103,14 @@ document.getElementById("purchase_button").addEventListener("click", function ()
   orderId = document.getElementById("order_id").value;
   totalAmount = document.getElementById("total_amount").value;
   currency = document.getElementById("currency").value;
+  products = document.getElementById("products").value;
   console.log("Tracking purchase:", orderId, totalAmount, currency);
   if (window.analytics) {
     analytics.track("Order Completed", {
       orderId: orderId,
       total: parseFloat(totalAmount),
-      currency: currency
+      currency: currency,
+      products: parsedProducts
     });
   } else {
     console.error("Segment analytics is not loaded.");
