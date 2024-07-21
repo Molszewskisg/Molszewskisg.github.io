@@ -100,12 +100,23 @@ document.getElementById("event_button").addEventListener("click", function () {
 
 // TRACK PURCHASE
 document.getElementById("purchase_button").addEventListener("click", function () {
-  orderId = document.getElementById("order_id").value;
-  totalAmount = document.getElementById("total_amount").value;
-  currency = document.getElementById("currency").value;
-  products = document.getElementById("products").value;
+  const orderId = document.getElementById("order_id").value;
+  const totalAmount = document.getElementById("total_amount").value;
+  const currency = document.getElementById("currency").value;
+  const products = document.getElementById("products").value;
+
   console.log("Tracking purchase:", orderId, totalAmount, currency);
+
   if (window.analytics) {
+    let parsedProducts;
+    try {
+      parsedProducts = JSON.parse(products);
+    } catch (e) {
+      console.error("Invalid JSON input for products:", e);
+      alert("Please enter valid JSON for products.");
+      return;
+    }
+
     analytics.track("Order Completed", {
       orderId: orderId,
       total: parseFloat(totalAmount),
