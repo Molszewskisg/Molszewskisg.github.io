@@ -98,25 +98,17 @@ document.getElementById("event_button").addEventListener("click", function () {
   }
 });
 
-// PURCHASE EVENTS
-document.getElementById("log_purchase_button").addEventListener("click", function () {
-  const productId = document.getElementById("product_id").value;
-  const currency = document.getElementById("currency").value || "USD"; // Default to USD if not provided
-  const price = parseFloat(document.getElementById("price").value);
-  const quantity = parseInt(document.getElementById("quantity").value) || 1; // Default to 1 if not provided
-
-  console.log("Product ID:", productId);
-  console.log("Currency:", currency);
-  console.log("Price:", price);
-  console.log("Quantity:", quantity);
-
+// TRACK PURCHASE
+document.getElementById("purchase_button").addEventListener("click", function () {
+  orderId = document.getElementById("order_id").value;
+  totalAmount = document.getElementById("total_amount").value;
+  currency = document.getElementById("currency").value;
+  console.log("Tracking purchase:", orderId, totalAmount, currency);
   if (window.analytics) {
-    console.log("Segment analytics is loaded. Logging purchase event.");
     analytics.track("Order Completed", {
-      productId: productId,
-      currency: currency,
-      price: price,
-      quantity: quantity,
+      orderId: orderId,
+      total: parseFloat(totalAmount),
+      currency: currency
     });
   } else {
     console.error("Segment analytics is not loaded.");
