@@ -101,7 +101,7 @@ document.getElementById("event_button").addEventListener("click", function () {
 // TRACK PURCHASE
 document.getElementById("purchase_button").addEventListener("click", function () {
   const orderId = document.getElementById("order_id").value;
-  const totalAmount = document.getElementById("total_amount").value;
+  const revenue = document.getElementById("revenue").value;
   const currency = document.getElementById("currency").value;
   const products = document.getElementById("products").value;
 
@@ -119,7 +119,7 @@ document.getElementById("purchase_button").addEventListener("click", function ()
 
     analytics.track("Order Completed", {
       orderId: orderId,
-      total: parseFloat(totalAmount),
+      revenue: parseFloat(revenue),
       currency: currency,
       products: parsedProducts
     });
