@@ -100,13 +100,18 @@ document.getElementById("event_button").addEventListener("click", function () {
 
 // PURCHASE EVENTS
 document.getElementById("log_purchase_button").addEventListener("click", function () {
-  productId = document.getElementById("product_id").value;
-  currency = document.getElementById("currency").value || "USD"; // Default to USD if not provided
-  price = parseFloat(document.getElementById("price").value);
-  quantity = parseInt(document.getElementById("quantity").value) || 1; // Default to 1 if not provided
+  const productId = document.getElementById("product_id").value;
+  const currency = document.getElementById("currency").value || "USD"; // Default to USD if not provided
+  const price = parseFloat(document.getElementById("price").value);
+  const quantity = parseInt(document.getElementById("quantity").value) || 1; // Default to 1 if not provided
 
-  console.log("Logging purchase:", productId, currency, price, quantity);
+  console.log("Product ID:", productId);
+  console.log("Currency:", currency);
+  console.log("Price:", price);
+  console.log("Quantity:", quantity);
+
   if (window.analytics) {
+    console.log("Segment analytics is loaded. Logging purchase event.");
     analytics.track("Purchase", {
       productId: productId,
       currency: currency,
