@@ -179,15 +179,15 @@ function purchases() {
 }
 
 // Content Cards Analytics
-  braze.subscribeToContentCardsUpdates((updates) => {
+  appboy.subscribeToContentCardsUpdates((updates) => {
     const cards = updates.cards;
     feed.innerHTML = ''; // Clear the feed
 
     cards.forEach(card => {
       if (card.isControl) {
         // Do not display the control card, but remember to call `logContentCardImpressions([card])`
-        braze.logContentCardImpressions([card]);
-      } else if (card instanceof braze.ClassicCard || card instanceof braze.CaptionedImage) {
+        appboy.logContentCardImpressions([card]);
+      } else if (card instanceof appboy.ClassicCard || card instanceof appboy.CaptionedImage) {
         // Create and display a card element
         const cardElement = document.createElement('div');
         cardElement.innerHTML = `
@@ -197,14 +197,14 @@ function purchases() {
         `;
         feed.appendChild(cardElement);
         // Log card impression
-        braze.logContentCardImpressions([card]);
-      } else if (card instanceof braze.ImageOnly) {
+        appboy.logContentCardImpressions([card]);
+      } else if (card instanceof appboy.ImageOnly) {
         // Create and display an image-only card element
         const cardElement = document.createElement('div');
         cardElement.innerHTML = `<img src="${card.imageUrl}" alt="Image Card">`;
         feed.appendChild(cardElement);
         // Log card impression
-        braze.logContentCardImpressions([card]);
+        appboy.logContentCardImpressions([card]);
       }
     });
   });
