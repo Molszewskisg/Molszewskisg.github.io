@@ -130,15 +130,15 @@ document.getElementById("purchase_button").addEventListener("click", function ()
     const feed = document.getElementById("feed");
 
     toggle.onclick = function() {
-      appboy.toggleContentCards(feed);
+      braze.toggleContentCards(feed);
     }
 
     hide.onclick = function() {
-      appboy.hideContentCards();
+      braze.hideContentCards();
     }
 
     show.onclick = function() {
-      appboy.showContentCards(feed);
+      braze.showContentCards(feed);
     }
 
 
@@ -179,15 +179,15 @@ function purchases() {
 }
 
 // Content Cards Analytics
-  appboy.subscribeToContentCardsUpdates((updates) => {
+  braze.subscribeToContentCardsUpdates((updates) => {
     const cards = updates.cards;
     feed.innerHTML = ''; // Clear the feed
 
     cards.forEach(card => {
       if (card.isControl) {
         // Do not display the control card, but remember to call `logContentCardImpressions([card])`
-        appboy.logContentCardImpressions([card]);
-      } else if (card instanceof appboy.ClassicCard || card instanceof appboy.CaptionedImage) {
+        braze.logContentCardImpressions([card]);
+      } else if (card instanceof braze.ClassicCard || card instanceof braze.CaptionedImage) {
         // Create and display a card element
         const cardElement = document.createElement('div');
         cardElement.innerHTML = `
@@ -197,14 +197,14 @@ function purchases() {
         `;
         feed.appendChild(cardElement);
         // Log card impression
-        appboy.logContentCardImpressions([card]);
-      } else if (card instanceof appboy.ImageOnly) {
+        braze.logContentCardImpressions([card]);
+      } else if (card instanceof braze.ImageOnly) {
         // Create and display an image-only card element
         const cardElement = document.createElement('div');
         cardElement.innerHTML = `<img src="${card.imageUrl}" alt="Image Card">`;
         feed.appendChild(cardElement);
         // Log card impression
-        appboy.logContentCardImpressions([card]);
+        braze.logContentCardImpressions([card]);
       }
     });
   });
