@@ -123,6 +123,24 @@ document.getElementById("purchase_button").addEventListener("click", function ()
   }
 });
 
+// Content Cards
+    const toggle = document.getElementById("toggle");
+    const hide = document.getElementById("hide");
+    const show = document.getElementById("show");
+    const feed = document.getElementById("feed");
+
+    toggle.onclick = function() {
+      appboy.toggleContentCards(feed);
+    }
+
+    hide.onclick = function() {
+      appboy.hideContentCards();
+    }
+
+    show.onclick = function() {
+      appboy.showContentCards(feed);
+    }
+
 
 function user() {
   var x = document.getElementById("user");
@@ -159,3 +177,36 @@ function purchases() {
     x.style.display = "none";
   }
 }
+
+// Content Cards Analytics
+  appboy.subscribeToContentCardsUpdates((updates) => {
+    const cards = updates.cards;
+    feed.innerHTML = ''; // Clear the feed
+
+    cards.forEach(card => {
+      if (card.isControl) {
+        // Do not display the control card, but remember to call `logContentCardImpressions([card])`
+        appboy.logContentCardImpressions([card]);
+      } else if (card instanceof appboy.ClassicCard || card instanceof appboy.CaptionedImage) {
+        // Create and display a card element
+        const cardElement = document.createElement('div');
+        cardElement.innerHTML = `
+          <h2>${card.title}</h2>
+          <img src="${card.imageUrl}" alt="${card.title}">
+          <p>${card.description}</p>
+        `;
+        feed.appendChild(cardElement);
+        // Log card impression
+        appboy.logContentCardImpressions([card]);
+      } else if (card instanceof appboy.ImageOnly) {
+        // Create and display an image-only card element
+        const cardElement = document.createElement('div');
+        cardElement.innerHTML = `<img src="${card.imageUrl}" alt="Image Card">`;
+        feed.appendChild(cardElement);
+        // Log card impression
+        appboy.logContentCardImpressions([card]);
+      }
+    });
+  });
+
+  appboy.openSession();
